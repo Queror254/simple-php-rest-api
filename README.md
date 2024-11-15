@@ -80,6 +80,10 @@ Copy code
 
 Run the following SQL to create the `part_numbers` table:
 
+sql
+
+Copy code
+
     CREATE TABLE part_numbers (
       id INT NOT NULL AUTO_INCREMENT,
       part_number VARCHAR(255) NOT NULL,
@@ -93,7 +97,9 @@ Run the following SQL to create the `part_numbers` table:
 
 You can insert some sample part numbers into the table:
 
+sql
 
+Copy code
 
     INSERT INTO part_numbers (part_number, name, description, price) VALUES
     ('PN-001', 'Part A', 'Description of Part A', 100.00),
@@ -119,8 +125,9 @@ You can insert some sample part numbers into the table:
 - **Description**: Create a new part number record.
 
 **Request Body (JSON)**:\
-
-{
+json\
+Copy code\
+`{`
 
       "part_number": "ABC123",
       "name": "Widget Part",
@@ -143,8 +150,9 @@ You can insert some sample part numbers into the table:
   - `id` — The ID of the part to be updated.
 
 **Request Body (JSON)**:\
-
-{
+json\
+Copy code\
+`{`
 
       "part_number": "ABC123",
       "name": "Updated Widget Part",
