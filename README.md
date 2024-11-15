@@ -1,6 +1,6 @@
 <!--StartFragment-->
 
-# **Part Numbers API**
+# **simple-php-rest-api**
 
 This API allows for managing part numbers in a manufacturer database. It provides CRUD (Create, Read, Update, Delete) functionality for part numbers, enabling users to retrieve, add, update, and delete part records.
 
@@ -42,23 +42,17 @@ This API allows for managing part numbers in a manufacturer database. It provide
 
 ### **Steps**
 
-**Clone the Repository**: Clone the project into your local machine.\
-bash\
-Copy code\
+1. **Clone the Repository**: Clone the project into your local machine.\
+e\
 `git clone https://github.com/yourusername/part-number-api.git`
 
-1.
+2. **Configure Database Connection**: Open the `config/db.php` file and update your MySQL connection details:\
 
-**Configure Database Connection**: Open the `config/db.php` file and update your MySQL connection details:\
-php\
-Copy code\
 `$host = 'localhost';`
 
     $username = 'root';
     $password = '';
     $database = 'manufacturer_db';
-
-2.
 
 3. **Start Your Web Server**: Ensure your Apache server (e.g., WAMP, XAMPP, or MAMP) is running.
 
@@ -70,9 +64,6 @@ Copy code\
 
 Create a new database in your MySQL server:
 
-sql
-
-Copy code
 
     CREATE DATABASE manufacturer_db;
 
@@ -80,9 +71,6 @@ Copy code
 
 Run the following SQL to create the `part_numbers` table:
 
-sql
-
-Copy code
 
     CREATE TABLE part_numbers (
       id INT NOT NULL AUTO_INCREMENT,
@@ -96,10 +84,6 @@ Copy code
 ### **(Optional) Insert Sample Data**
 
 You can insert some sample part numbers into the table:
-
-sql
-
-Copy code
 
     INSERT INTO part_numbers (part_number, name, description, price) VALUES
     ('PN-001', 'Part A', 'Description of Part A', 100.00),
@@ -125,8 +109,7 @@ Copy code
 - **Description**: Create a new part number record.
 
 **Request Body (JSON)**:\
-json\
-Copy code\
+
 `{`
 
       "part_number": "ABC123",
@@ -150,8 +133,7 @@ Copy code\
   - `id` — The ID of the part to be updated.
 
 **Request Body (JSON)**:\
-json\
-Copy code\
+
 `{`
 
       "part_number": "ABC123",
@@ -183,8 +165,7 @@ Copy code\
 ### **1. GET All Part Numbers**
 
 **Request**:\
-bash\
-Copy code\
+
 `curl -X GET http://localhost/api/part-numbers`
 
 - **Response**:\
@@ -213,8 +194,7 @@ Copy code\
 ### **2. POST a New Part Number**
 
 **Request**:\
-bash\
-Copy code\
+
 `curl -X POST http://localhost/api/part-numbers \`
 
       -H "Content-Type: application/json" \
@@ -234,16 +214,14 @@ Copy code\
 ### **3. PUT Update an Existing Part**
 
 **Request**:\
-bash\
-Copy code\
+
 `curl -X PUT http://localhost/api/part-numbers?id=3 \`
 
       -H "Content-Type: application/json" \
       -d '{"part_number": "DEF789", "name": "Updated Widget", "description": "Updated description", "price": 79.99}'
 
 - **Response**:\
-  json\
-  Copy code\
+
   `{`
 
         "message": "Part updated successfully"
@@ -254,13 +232,11 @@ Copy code\
 ### **4. DELETE a Part**
 
 **Request**:\
-bash\
-Copy code\
+
 `curl -X DELETE http://localhost/api/part-numbers?id=3`
 
 - **Response**:\
-  json\
-  Copy code\
+
   `{`
 
         "message": "Part deleted successfully"
@@ -272,10 +248,6 @@ Copy code\
 
 For unsupported HTTP methods or invalid requests, the API returns a message like:
 
-json
-
-Copy code
-
     {
       "message": "Unsupported method"
     }
@@ -286,6 +258,5 @@ Database connection errors or query execution errors are also handled and return
 
 This project is licensed under the MIT License.
 
-\
 
 <!--EndFragment-->
